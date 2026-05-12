@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JetBlast Co. | Rocket City Clean | Huntsville Pressure Washing</title>
+  <meta name="description" content="Huntsville's #1 pressure washing service. Professional cleaning for driveways, windows & trash bins. Serving Huntsville & Madison, AL.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWTTJS6SC1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWTTJS6SC1');
+  </script>
+
+<style>
+    /* ─── RESET & TOKENS ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow: #FFD600;
+      --navy:   #0A1F44;
+      --white:  #FFFFFF;
+      --gray:   #F5F5F5;
+      --dark:   #1a1a1a;
+      --text:   #333333;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      opacity: 0;
+      animation: pageFadeIn .55s ease .05s forwards;
+    }
+
+    @keyframes pageFadeIn { to { opacity: 1; } }
+
+    h1, h2, h3, h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: .05em;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ─── SCARCITY BANNER ────────────────────────────────── */
+    .scarcity {
+      background: var(--yellow);
+      color: var(--navy);
+      text-align: center;
+      padding: 9px 16px;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      position: relative;
+      z-index: 1001;
+    }
+    .scarcity a { color: var(--navy); text-decoration: underline; }
+
+    /* ─── NAVBAR ─────────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 5%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: transparent;
+      transition: background .35s ease, box-shadow .35s ease, top .35s ease;
+    }
+    .navbar.scrolled {
+      background: var(--navy);
+      box-shadow: 0 2px 24px rgba(0,0,0,.35);
+    }
+
+    .nav-logo img { object-fit: contain; }
+    .navbar-logo-wrapper {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 4px 10px;
+    }
+    .navbar-logo {
+      filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.5))
+              drop-shadow(0px 0px 2px rgba(255, 214, 0, 0.4));
+      height: 52px;
+      width: auto;
+    }
+    .navbar.scrolled .navbar-logo {
+      filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.7))
+              drop-shadow(0px 0px 3px rgba(255, 214, 0, 0.5));
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--white);
+      font-size: .92rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--yellow); }
+
+    .btn-nav {
+      background: var(--yellow) !important;
+      color: var(--navy) !important;
+      padding: 10px 26px;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      font-size: .9rem !important;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-nav:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255,214,0,.4);
+      color: var(--navy) !important;
+    }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 1002;
+    }
+    .hamburger span {
+      display: block;
+      width: 25px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    /* mobile overlay */
+    .mob-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--navy);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+    .mob-nav.open { display: flex; }
+    .mob-nav a {
+      color: var(--white);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: .05em;
+      transition: color .2s;
+    }
+    .mob-nav a:hover { color: var(--yellow); }
+    .mob-nav .btn-nav {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem !important;
+    }
+
+    /* ─── SHARED BUTTONS ─────────────────────────────────── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--yellow);
+      color: var(--navy);
+      padding: 15px 34px;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      min-height: 52px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 26px rgba(255,214,0,.45);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: var(--white);
+      padding: 15px 34px;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 2px solid rgba(255,255,255,.8);
+      min-height: 52px;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--white);
+    }
+
+    /* ─── FADE-UP ANIMATION ──────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(38px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* stagger siblings */
+    .fade-up:nth-child(2) { transition-delay: .12s; }
+    .fade-up:nth-child(3) { transition-delay: .22s; }
+    .fade-up:nth-child(4) { transition-delay: .32s; }
+
+    /* ─── SECTION WRAPPERS ───────────────────────────────── */
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 88px 5%;
+    }
+
+    .section-heading {
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      background: url('image/The Hero.png') center center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,31,68,.46);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 880px;
+      padding: 0 5%;
+      animation: heroIn 1s ease .25s both;
+    }
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: .8rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 2px;
+      margin-bottom: 22px;
+    }
+    .hero-h1 {
+      font-size: clamp(3rem, 8.5vw, 6.2rem);
+      color: var(--white);
+      line-height: 1.02;
+      margin-bottom: 22px;
+    }
+    .hero-h1 em { color: var(--yellow); font-style: normal; }
+    .hero-sub {
+      color: rgba(255,255,255,.88);
+      font-size: clamp(.98rem, 2vw, 1.22rem);
+      line-height: 1.65;
+      max-width: 580px;
+      margin: 0 auto 38px;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      cursor: pointer;
+      animation: cue 2.2s ease-in-out infinite;
+    }
+    .scroll-cue svg {
+      width: 38px; height: 38px;
+      stroke: var(--yellow);
+    }
+    @keyframes cue {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(11px); }
+    }
+
+    /* ─── TRUST BAR ──────────────────────────────────────── */
+    #trust-bar {
+      background: var(--navy);
+      padding: 44px 5%;
+    }
+    .trust-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 24px;
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .trust-icon { font-size: 2rem; flex-shrink: 0; }
+    .trust-copy strong {
+      display: block;
+      color: var(--yellow);
+      font-weight: 700;
+      font-size: .95rem;
+      margin-bottom: 3px;
+    }
+    .trust-copy span {
+      color: rgba(255,255,255,.72);
+      font-size: .82rem;
+    }
+
+    /* ─── SERVICES ───────────────────────────────────────── */
+    #services { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 28px;
+    }
+
+    .card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 22px rgba(0,0,0,.08);
+      background: var(--white);
+      border-top: 4px solid transparent;
+      transition: transform .3s, box-shadow .3s, border-top-color .3s;
+    }
+    .card:hover {
+      transform: translateY(-9px);
+      box-shadow: 0 14px 44px rgba(0,0,0,.14);
+      border-top-color: var(--yellow);
+    }
+    .card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card-body { padding: 28px; }
+    .card-title {
+      font-size: 1.75rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .card-desc {
+      font-size: .88rem;
+      color: #666;
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+    .price-list { list-style: none; margin-bottom: 26px; }
+    .price-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--gray);
+      font-size: .88rem;
+    }
+    .price-list li:last-child { border-bottom: none; }
+    .price-amt { font-weight: 700; color: var(--navy); }
+
+    .btn-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      padding: 13px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: .93rem;
+      min-height: 48px;
+      transition: background .2s, color .2s;
+    }
+    .btn-card:hover { background: var(--yellow); color: var(--navy); }
+
+    /* ─── BEFORE & AFTER ─────────────────────────────────── */
+    #before-after { background: var(--dark); }
+    #before-after .section-heading { color: var(--white); }
+
+    .ba-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 5% 88px;
+    }
+
+    /* ─── PARALLAX BANNER ────────────────────────────────── */
+    #banner {
+      min-height: 440px;
+      background: url('image/Curb Appeal.png') center center / cover no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,31,68,.66);
+    }
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 5%;
+    }
+    .banner-content h2 {
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .banner-content p {
+      color: rgba(255,255,255,.82);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    /* ─── WHY US ─────────────────────────────────────────── */
+    #why-us { background: var(--white); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5% 80px;
+    }
+    .why-img img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 10px 36px rgba(0,0,0,.12);
+    }
+    .why-points { list-style: none; }
+    .why-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 17px 0;
+      border-bottom: 1px solid var(--gray);
+    }
+    .why-points li:last-child { border-bottom: none; }
+    .why-check { font-size: 1.15rem; flex-shrink: 0; margin-top: 2px; }
+    .why-copy strong { display: block; font-weight: 700; color: var(--navy); font-size: .97rem; }
+    .why-copy p { color: #777; font-size: .86rem; margin-top: 4px; line-height: 1.55; }
+
+    .flatlay-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5% 88px;
+    }
+    .flatlay-wrap img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* ─── REVIEWS ────────────────────────────────────────── */
+    #reviews { background: var(--gray); }
+
+    .reviews-hero-img {
+      width: 100%;
+      max-width: 768px;
+      aspect-ratio: 848 / 764;
+      object-fit: cover;
+      object-position: top;
+      margin: 0 auto 52px;
+      border-radius: 10px;
+      display: block;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 14px rgba(0,0,0,.06);
+    }
+    .review-stars { color: #FFB800; font-size: 1.1rem; margin-bottom: 14px; }
+    .review-text {
+      font-size: .93rem;
+      line-height: 1.7;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 18px;
+    }
+    .review-name { font-weight: 700; font-size: .9rem; color: var(--navy); }
+    .review-loc  { font-size: .78rem; color: #aaa; margin-top: 3px; }
+
+    /* ─── FINAL CTA ──────────────────────────────────────── */
+    #final-cta {
+      background: var(--navy);
+      text-align: center;
+    }
+    #final-cta h2 {
+      color: var(--white);
+      font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+      margin-bottom: 16px;
+    }
+    #final-cta p { color: rgba(255,255,255,.78); font-size: 1.1rem; margin-bottom: 38px; }
+    .cta-phone {
+      margin-top: 22px;
+      color: rgba(255,255,255,.6);
+      font-size: .93rem;
+    }
+    .cta-phone a { color: var(--yellow); font-weight: 600; }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: #060f22;
+      padding: 52px 5%;
+      text-align: center;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    footer .f-logo { height: 54px; margin: 0 auto 18px; filter: drop-shadow(0px 0px 4px rgba(255,255,255,0.2)); }
+    .f-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.45rem;
+      color: var(--white);
+      letter-spacing: .05em;
+      margin-bottom: 5px;
+    }
+    .f-loc  { color: rgba(255,255,255,.5); font-size: .84rem; margin-bottom: 22px; }
+    .f-links {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+    .f-links a {
+      color: rgba(255,255,255,.55);
+      font-size: .88rem;
+      transition: color .2s;
+    }
+    .f-links a:hover { color: var(--yellow); }
+    .f-copy { color: rgba(255,255,255,.3); font-size: .78rem; }
+
+    /* ─── PAGE TRANSITION (yellow flash) ────────────────── */
+    #pt-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--yellow);
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    /* ─── SCROLL PROGRESS BAR ────────────────────────────── */
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--yellow);
+      z-index: 10000;
+      transition: width .1s linear;
+      pointer-events: none;
+    }
+
+    /* ─── NAVBAR ROCKET ──────────────────────────────────── */
+    .nav-rocket {
+      display: inline-block;
+      width: 12px; height: 24px;
+      position: relative;
+      flex-shrink: 0;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .nav-rocket::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 8px; height: 15px;
+      background: var(--yellow);
+      clip-path: polygon(50% 0%, 100% 55%, 100% 100%, 0% 100%, 0% 55%);
+    }
+    .nav-rocket::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 6px; height: 7px;
+      background: radial-gradient(circle at 50% 0%, #ff9500 0%, #ff4500 70%, transparent 100%);
+      border-radius: 0 0 50% 50%;
+      animation: navFlame .4s ease-in-out infinite alternate;
+    }
+    @keyframes navFlame {
+      from { transform: translateX(-50%) scaleY(1);   opacity: 1; }
+      to   { transform: translateX(-50%) scaleY(1.7); opacity: .6; }
+    }
+
+    /* ─── HERO ROCKET ────────────────────────────────────── */
+    .hero-rocket-wrap {
+      position: absolute;
+      bottom: 80px; left: 40px;
+      z-index: 3;
+      pointer-events: none;
+      animation: rocketFlyIn 1.8s cubic-bezier(.22,1,.36,1) .4s both;
+    }
+    @keyframes rocketFlyIn {
+      from { transform: translate(-120px, 180px) rotate(-38deg); opacity: 0; }
+      to   { transform: translate(0, 0) rotate(-38deg); opacity: 1; }
+    }
+    .hero-rocket-bob {
+      animation: rocketFlyIn 1.8s cubic-bezier(.22,1,.36,1) .4s both,
+                 heroBob 2s ease-in-out 2.3s infinite;
+    }
+    @keyframes heroBob {
+      0%, 100% { transform: rotate(-38deg) translateY(0); }
+      50%      { transform: rotate(-38deg) translateY(-6px); }
+    }
+    .hero-rocket-svg { width: 52px; }
+    @media (max-width: 768px) {
+      .hero-rocket-wrap { left: 14px; bottom: 60px; }
+      .hero-rocket-svg  { width: 34px; }
+    }
+
+    /* ─── HERO TEXT WORD ANIMATION ───────────────────────── */
+    .hero-h1 .word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(22px);
+      animation: wordSlideUp .5s ease forwards;
+    }
+    .hero-h1 .word:nth-child(1) { animation-delay: .35s; }
+    .hero-h1 .word:nth-child(2) { animation-delay: .52s; }
+    .hero-h1 .word:nth-child(3) { animation-delay: .70s; }
+    .hero-h1 .word:nth-child(4) { animation-delay: .88s; }
+    .hero-h1 .word:nth-child(5) { animation-delay: 1.05s; }
+    @keyframes wordSlideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-sub-anim {
+      opacity: 0;
+      animation: heroFadeIn .6s ease 1.4s forwards;
+    }
+    .hero-btns-anim {
+      opacity: 0;
+      transform: scale(.82);
+      animation: btnBounce .45s cubic-bezier(.34,1.56,.64,1) 1.7s forwards;
+    }
+    @keyframes heroFadeIn { to { opacity: 1; } }
+    @keyframes btnBounce  { to { opacity: 1; transform: scale(1); } }
+
+    /* ─── SERVICE CARD IMAGE ZOOM ────────────────────────── */
+    .card { overflow: hidden; }
+    .card .card-img {
+      transition: transform .4s ease;
+    }
+    .card:hover .card-img { transform: scale(1.05); }
+
+    /* ─── BEFORE/AFTER STATIC SPLIT ─────────────────────── */
+    .ba-slider {
+      position: relative;
+      height: 460px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .ba-slider:last-child { margin-bottom: 0; }
+    .ba-side {
+      position: absolute;
+      inset: 0;
+    }
+    .ba-side img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ba-side--before {
+      clip-path: inset(0 50% 0 0);
+    }
+    .ba-side--before img {
+      filter: grayscale(100%) brightness(.75);
+    }
+    .ba-divider {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: var(--white);
+      transform: translateX(-50%);
+      z-index: 3;
+      pointer-events: none;
+    }
+    .lbl {
+      position: absolute;
+      top: 16px;
+      font-weight: 700; font-size: .8rem;
+      letter-spacing: .12em; padding: 6px 16px; border-radius: 3px;
+      z-index: 4;
+      pointer-events: none;
+    }
+    .lbl-before { left: 16px;  background: #e53935; color: #fff; }
+    .lbl-after  { right: 16px; background: #43a047; color: #fff; }
+    @media (max-width: 768px) { .ba-slider { height: 280px; } }
+
+    /* ─── TRUST COUNTER ──────────────────────────────────── */
+    .count-num { font-variant-numeric: tabular-nums; }
+
+    /* ─── PREFERS-REDUCED-MOTION ─────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .nav-rocket::after      { animation: none; }
+      .hero-rocket-wrap,
+      .hero-rocket-bob        { animation: none; opacity: 1;
+                                transform: translate(0,0) rotate(-38deg); }
+      .hero-h1 .word          { animation: none; opacity: 1; transform: none; }
+      .hero-sub-anim          { animation: none; opacity: 1; }
+      .hero-btns-anim         { animation: none; opacity: 1; transform: none; }
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .services-grid  { grid-template-columns: repeat(2,1fr); }
+      .trust-grid     { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links      { display: none; }
+      .hamburger      { display: flex; }
+      .services-grid  { grid-template-columns: 1fr; }
+      .reviews-grid   { grid-template-columns: 1fr; }
+      .why-grid       { grid-template-columns: 1fr; gap: 40px; }
+      .hero-btns      { flex-direction: column; align-items: center; }
+      .ba-item img    { height: 280px; }
+      #banner         { background-attachment: scroll; }
+    }
+    @media (max-width: 480px) {
+      .trust-grid { grid-template-columns: 1fr; }
+      .scarcity   { font-size: .72rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- ░░ SCARCITY BANNER ░░ -->
+<div class="scarcity" id="scarcity-bar">
+  🔥 Limited spots available this week in Huntsville &mdash;
+  <a href="booking.html">Book Now Before They Fill Up</a>
+</div>
+
+<!-- ░░ NAVBAR ░░ -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px;">
+    <div class="navbar-logo-wrapper">
+      <img class="navbar-logo" src="image/LOGO-removebg-preview.png" alt="JetBlast Co.">
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#before-after">Before &amp; After</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="booking.html" class="btn-nav">Book Now</a></li>
+  </ul>
+  <div class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ░░ MOBILE NAV ░░ -->
+<div class="mob-nav" id="mob-nav">
+  <a href="#services"      onclick="closeMob()">Services</a>
+  <a href="#before-after"  onclick="closeMob()">Before &amp; After</a>
+  <a href="#why-us"        onclick="closeMob()">Why Us</a>
+  <a href="#reviews"       onclick="closeMob()">Reviews</a>
+  <a href="booking.html"   class="btn-nav" onclick="closeMob()">Book Now</a>
+</div>
+
+<!-- ░░ SECTION 2 — HERO ░░ -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-kicker">Rocket City Clean</span>
+    <h1 class="hero-h1">
+      <span class="word">Huntsville's</span>
+      <em class="word">&nbsp;#1</em><br>
+      <span class="word">Pressure</span>
+      <span class="word">&nbsp;Washing</span>
+      <span class="word">&nbsp;Service</span>
+    </h1>
+    <p class="hero-sub hero-sub-anim">Professional cleaning for driveways, windows &amp; trash bins. Serving Huntsville &amp; Madison, AL.</p>
+    <div class="hero-btns hero-btns-anim">
+      <a href="booking.html" class="btn-primary">Book Your Clean</a>
+      <a href="tel:2563370955" class="btn-outline">Call Us Now</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue" onclick="scrollTo('#trust-bar')">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ░░ SECTION 3 — TRUST BAR ░░ -->
+<section id="trust-bar">
+  <div class="trust-grid">
+    <div class="trust-badge fade-up">
+      <div class="trust-icon">⚡</div>
+      <div class="trust-copy">
+        <strong>High Pressure Power</strong>
+        <span>Professional-grade equipment</span>
+      </div>
+    </div>
+    <div class="trust-badge fade-up">
+      <div class="trust-icon">🏠</div>
+      <div class="trust-copy">
+        <strong>Locally Owned &amp; Operated</strong>
+        <span>Proud Huntsville locals</span>
+      </div>
+    </div>
+    <div class="trust-badge fade-up" id="trust-stars">
+      <div class="trust-icon">⭐</div>
+      <div class="trust-copy">
+        <strong><span data-stars>☆☆☆☆☆</span> Rated</strong>
+        <span>Best in the Huntsville area</span>
+      </div>
+    </div>
+    <div class="trust-badge fade-up" id="trust-satisfaction">
+      <div class="trust-icon">📅</div>
+      <div class="trust-copy">
+        <strong><span data-count="100">0</span>% Satisfaction</strong>
+        <span>Guaranteed on every job</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ SECTION 4 — SERVICES ░░ -->
+<section id="services">
+  <div class="section-inner">
+    <h2 class="section-heading" style="color:var(--navy);">What We Do</h2>
+    <div class="services-grid">
+
+      <!-- Card 1 -->
+      <div class="card fade-up">
+        <img class="card-img" src="image/Blast Off.png" alt="Concrete Pressure Washing">
+        <div class="card-body">
+          <h3 class="card-title">Concrete Pressure Washing</h3>
+          <p class="card-desc">Blast away years of grime, oil stains, and mildew from your driveway, patio, or walkways. We restore concrete to near-new condition.</p>
+          <ul class="price-list">
+            <li><span>Driveway (standard)</span>        <span class="price-amt">$120</span></li>
+            <li><span>Driveway (large / 2-car+)</span>  <span class="price-amt">$175</span></li>
+            <li><span>Patio / Walkway</span>            <span class="price-amt">$80</span></li>
+            <li><span>Full exterior concrete</span>     <span class="price-amt">$220</span></li>
+          </ul>
+          <a href="booking.html?service=concrete" class="btn-card">Book This Service</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card fade-up">
+        <img class="card-img" src="image/Crystal Clear.png" alt="Window Cleaning">
+        <div class="card-body">
+          <h3 class="card-title">Window Cleaning</h3>
+          <p class="card-desc">Crystal-clear windows inside and out. We remove streaks, hard water spots, and buildup so you can enjoy the view again.</p>
+          <ul class="price-list">
+            <li><span>Small home (up to 10 windows)</span>  <span class="price-amt">$120</span></li>
+            <li><span>Medium home (11–20 windows)</span>    <span class="price-amt">$180</span></li>
+            <li><span>Large home (20+ windows)</span>       <span class="price-amt">$250+</span></li>
+          </ul>
+          <a href="booking.html?service=window" class="btn-card">Book This Service</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card fade-up">
+        <img class="card-img" src="image/Fresh Bins.png" alt="Trash Bin Cleaning">
+        <div class="card-body">
+          <h3 class="card-title">Trash Bin Cleaning</h3>
+          <p class="card-desc">Eliminate bacteria, odors, and buildup from your trash bins. Fresh, sanitized, and smelling clean after every visit.</p>
+          <ul class="price-list">
+            <li><span>1 bin</span>                              <span class="price-amt">$20</span></li>
+            <li><span>2 bins</span>                             <span class="price-amt">$35</span></li>
+            <li><span>Monthly subscription (2 bins)</span>      <span class="price-amt">$25/mo 🔁</span></li>
+          </ul>
+          <a href="booking.html?service=trash-bin" class="btn-card">Book This Service</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░ SECTION 5 — BEFORE & AFTER ░░ -->
+<section id="before-after">
+  <div class="section-inner" style="padding-bottom:40px;">
+    <h2 class="section-heading fade-up">The JetBlast Difference</h2>
+  </div>
+  <div class="ba-wrap">
+    <div class="ba-slider fade-up">
+      <div class="ba-side">
+        <img src="image/Driveway Transformation.png" alt="Driveway after pressure washing">
+      </div>
+      <div class="ba-side ba-side--before">
+        <img src="image/Driveway Transformation.png" alt="Driveway before pressure washing">
+      </div>
+      <div class="ba-divider"></div>
+      <span class="lbl lbl-before">BEFORE</span>
+      <span class="lbl lbl-after">AFTER</span>
+    </div>
+    <div class="ba-slider fade-up">
+      <div class="ba-side">
+        <img src="image/Fresh Bins.png" alt="Trash bin after cleaning">
+      </div>
+      <div class="ba-side ba-side--before">
+        <img src="image/Fresh Bins.png" alt="Trash bin before cleaning">
+      </div>
+      <div class="ba-divider"></div>
+      <span class="lbl lbl-before">BEFORE</span>
+      <span class="lbl lbl-after">AFTER</span>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ SECTION 6 — PARALLAX BANNER ░░ -->
+<section id="banner">
+  <div class="banner-overlay"></div>
+  <div class="banner-content fade-up">
+    <h2>Your Home Deserves to Shine.</h2>
+    <p>Serving the Huntsville &amp; Madison area &mdash; book in 60 seconds.</p>
+    <a href="booking.html" class="btn-primary">Get a Clean Today</a>
+  </div>
+</section>
+
+<!-- ░░ SECTION 7 — WHY US ░░ -->
+<section id="why-us">
+  <div class="section-inner" style="padding-bottom:40px;">
+    <h2 class="section-heading" style="color:var(--navy);">Why Huntsville Chooses JetBlast</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-img fade-up">
+      <img src="image/Rocket City Ready.png" alt="JetBlast Co. Professional">
+    </div>
+    <ul class="why-points fade-up">
+      <li>
+        <span class="why-check">✅</span>
+        <div class="why-copy">
+          <strong>Locally owned &amp; operated in Huntsville, AL</strong>
+          <p>We live here, we work here &mdash; your neighbors trust us.</p>
+        </div>
+      </li>
+      <li>
+        <span class="why-check">✅</span>
+        <div class="why-copy">
+          <strong>Professional-grade pressure washing equipment</strong>
+          <p>Commercial machines that deliver real results &mdash; not hardware store sprayers.</p>
+        </div>
+      </li>
+      <li>
+        <span class="why-check">✅</span>
+        <div class="why-copy">
+          <strong>Satisfaction guaranteed on every job</strong>
+          <p>Not happy? We'll make it right. No questions asked.</p>
+        </div>
+      </li>
+      <li>
+        <span class="why-check">✅</span>
+        <div class="why-copy">
+          <strong>Fully insured &mdash; your property is protected</strong>
+          <p>Complete liability coverage so you never have to worry.</p>
+        </div>
+      </li>
+      <li>
+        <span class="why-check">✅</span>
+        <div class="why-copy">
+          <strong>Easy online booking, flexible scheduling</strong>
+          <p>Book in 60 seconds, morning or evening slots available.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="flatlay-wrap fade-up">
+    <img src="image/The Full Package.png" alt="JetBlast Co. Full Package">
+  </div>
+</section>
+
+<!-- ░░ SECTION 8 — REVIEWS ░░ -->
+<section id="reviews">
+  <div class="section-inner">
+    <h2 class="section-heading fade-up" style="color:var(--navy);">What Our Customers Say</h2>
+    <img class="reviews-hero-img fade-up" src="image/5 Stars in Huntsville.png" alt="5 Stars in Huntsville">
+    <div class="reviews-grid">
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"JetBlast Co. completely transformed our driveway. It went from looking ten years old to brand new in under an hour. Highly recommend to anyone in Huntsville!"</p>
+        <div class="review-name">Sarah M.</div>
+        <div class="review-loc">Madison, AL</div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The window cleaning service was exceptional. Not a single streak &mdash; our home looks incredible. The whole process was seamless from booking to finish."</p>
+        <div class="review-name">James T.</div>
+        <div class="review-loc">Huntsville, AL</div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Signed up for the monthly bin cleaning subscription and it's been a game changer. No more smell, no more mess. Worth every penny &mdash; these guys are the real deal."</p>
+        <div class="review-name">David &amp; Kim R.</div>
+        <div class="review-loc">Huntsville, AL</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░ SECTION 9 — FINAL CTA ░░ -->
+<section id="final-cta">
+  <div class="section-inner">
+    <h2 class="fade-up">Ready for a Cleaner Home?</h2>
+    <p class="fade-up">Book online in 60 seconds. No calls required.</p>
+    <a href="booking.html" class="btn-primary fade-up">Book My Clean Now</a>
+    <p class="cta-phone fade-up">Prefer to call? <a href="tel:2563370955">256-337-0955</a></p>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer>
+  <div class="footer-inner">
+    <img class="f-logo" src="image/LOGO-removebg-preview.png" alt="JetBlast Co.">
+    <div class="f-brand">JetBlast Co. &mdash; Rocket City Clean</div>
+    <div class="f-loc">Serving Huntsville &amp; Madison, Alabama</div>
+    <div class="f-links">
+      <a href="#services">Services</a>
+      <a href="booking.html">Book Now</a>
+      <a href="mailto:hello@jetblastco.com">Contact</a>
+    </div>
+    <div class="f-copy">&copy; 2025 JetBlast Co. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- ░░ PAGE TRANSITION OVERLAY ░░ -->
+<div id="pt-overlay"></div>
+
+<script>
+  /* ── SCROLL PROGRESS BAR ── */
+  const sp = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    sp.style.width = Math.min(pct, 100) + '%';
+  }, { passive: true });
+
+  /* ── NAVBAR SCROLL ── */
+  const navbar  = document.getElementById('navbar');
+  const scarBar = document.getElementById('scarcity-bar');
+
+  function setNavTop() {
+    navbar.style.top = window.scrollY > 60 ? '0' : scarBar.offsetHeight + 'px';
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }
+  window.addEventListener('scroll', setNavTop, { passive: true });
+  setNavTop();
+
+  /* ── HAMBURGER ── */
+  const ham    = document.getElementById('ham');
+  const mobNav = document.getElementById('mob-nav');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mobNav.classList.toggle('open');
+    document.body.style.overflow = mobNav.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMob() {
+    ham.classList.remove('open');
+    mobNav.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ── SCROLL HELPER ── */
+  function scrollTo(id) {
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  /* ── FADE-UP OBSERVER ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.11 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+  /* ── TRUST COUNTER ANIMATION ── */
+  function countUp(el, target, duration) {
+    let start = null;
+    const step = ts => {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / duration, 1);
+      el.textContent = Math.round(p * target);
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  function fillStars(el) {
+    const s = ['☆','☆','☆','☆','☆'];
+    let i = 0;
+    const t = setInterval(() => {
+      s[i++] = '★';
+      el.textContent = s.join('');
+      if (i >= 5) clearInterval(t);
+    }, 200);
+  }
+
+  const trustObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const countEl = e.target.querySelector('[data-count]');
+      const starsEl = e.target.querySelector('[data-stars]');
+      if (countEl) countUp(countEl, parseInt(countEl.dataset.count, 10), 1400);
+      if (starsEl) fillStars(starsEl);
+      trustObs.unobserve(e.target);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.trust-badge').forEach(el => trustObs.observe(el));
+
+  /* ── BEFORE/AFTER DRAG SLIDERS ── */
+  document.querySelectorAll('[data-slider]').forEach(slider => {
+    const handle  = slider.querySelector('[data-handle]');
+    const after   = slider.querySelector('.ba-layer--after');
+    let dragging  = false;
+
+    function setPos(clientX) {
+      const rect = slider.getBoundingClientRect();
+      let pct = (clientX - rect.left) / rect.width * 100;
+      pct = Math.max(4, Math.min(96, pct));
+      handle.style.left = pct + '%';
+      after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    }
+
+    handle.addEventListener('mousedown',  e => { dragging = true; e.preventDefault(); });
+    window.addEventListener('mousemove',  e => { if (dragging) setPos(e.clientX); });
+    window.addEventListener('mouseup',    ()  => { dragging = false; });
+
+    handle.addEventListener('touchstart', e => { dragging = true; e.preventDefault(); }, { passive: false });
+    window.addEventListener('touchmove',  e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchend',   ()  => { dragging = false; });
+
+    slider.addEventListener('click', e => { if (!dragging) setPos(e.clientX); });
+  });
+
+  /* ── PAGE TRANSITIONS ── */
+  const pto = document.getElementById('pt-overlay');
+  document.querySelectorAll('a[href]').forEach(a => {
+    const h = a.getAttribute('href');
+    if (h && !h.startsWith('#') && !h.startsWith('tel:') && !h.startsWith('mailto:') && !h.startsWith('http')) {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        pto.style.opacity = '1';
+        pto.style.pointerEvents = 'all';
+        setTimeout(() => window.location.href = h, 320);
+      });
+    }
+  });
+  window.addEventListener('pageshow', () => {
+    pto.style.opacity = '0';
+    pto.style.pointerEvents = 'none';
+  });
+</script>
+</body>
+</html>
